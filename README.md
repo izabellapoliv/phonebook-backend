@@ -22,7 +22,7 @@ On the project's root directory, run the command
 npm run watch
 ```
 
-Then view the app on your browser by visiting the address: [http://localhost:3000/](http://localhost:3000/)
+Then view the app on your browser by visiting the address: [http://localhost:3001/](http://localhost:3001/)
 
 ## Author
 
