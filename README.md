@@ -8,7 +8,7 @@
 
 ## Install
 
-This project uses [node](http://nodejs.org) and [npm](https://npmjs.com). To run this project locally, run the following commands on the root directory:
+This project uses [node](http://nodejs.org) and [npm](https://npmjs.com). To install this project locally, run the following command on the root directory:
 
 ```
 npm install
@@ -16,8 +16,13 @@ npm install
 
 ## Usage
 
+On the project's root directory, run the command
+
 ```
+npm run watch
 ```
+
+Then view the app on your browser by visiting the address: [http://localhost:3000/](http://localhost:3000/)
 
 ## Author
 
