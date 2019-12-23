@@ -1,23 +1,27 @@
 {
-  "name": "fullstackopen_part3",
+  "name": "phonebook-backend",
   "version": "1.0.0",
   "description": "Dedicated repository for Part3",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "watch": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf build && cd /home/izabella/'Área de Trabalho'/fullstackopen/part2/phonebook/ && npm run build --prod && cp -r build /home/izabella/'Área de Trabalho'/phonebook-backend/",
+    "deploy": "git push heroku master",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",
+    "logs:prod": "heroku logs --tail"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/izaoli/fullstackopen_part3.git"
+    "url": "git+https://github.com/izaoli/phonebook-backend.git"
   },
   "author": "Izabella Oliveira",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/izaoli/fullstackopen_part3/issues"
+    "url": "https://github.com/izaoli/phonebook-backend/issues"
   },
-  "homepage": "https://github.com/izaoli/fullstackopen_part3#readme",
+  "homepage": "https://github.com/izaoli/phonebook-backend#readme",
   "dependencies": {
     "express": "^4.17.1"
   },
