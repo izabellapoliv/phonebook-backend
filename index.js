@@ -66,30 +66,8 @@ app.delete(`${baseUrl}/:id`, (req, res, next) => {
         .catch(error => next(error))
 })
 
-const isNameDuplicate = name => {
-    return false
-    // TODO: not working because request is async
-    Person.find({ name: name })
-        .then(person => {
-            console.log(person)
-            return true
-        })
-        .catch(error => {
-            console.log(error)
-            return false
-        })
-}
 app.post(baseUrl, (req, res, next) => {
     const body = req.body
-    if (!body.name) {
-        return res.status(400).json({ error: 'name missing' })
-    }
-    if (!body.number) {
-        return res.status(400).json({ error: 'number missing' })
-    }
-    if (isNameDuplicate(body.name)) {
-        return res.status(400).json({ error: `${body.name} is already added to the phonebook` })
-    }
 
     const person = new Person({
         name: body.name,
@@ -140,6 +118,9 @@ const errorHandler = (error, req, res, next) => {
 
     if (error.name === 'CastError' && error.kind === 'ObjectId') {
         return res.status(400).send({ error: 'malformatted id' })
+    }
+    if (error.name === 'ValidationError') {
+        return res.status(400).json({ error: error.message })
     }
 
     next(error)
